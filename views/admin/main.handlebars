@@ -1,0 +1,48 @@
+<h1>
+    ממשק ניהול
+</h1>
+
+<div class="mb-3 col-md-2">
+    <label for="formType" class="form-label">סוג טופס</label>
+    <select class="form-select" id="formType"aria-label="Default select example">
+    {{#each availableForms}}
+        <option value="{{this}}">{{this}}</option>
+    {{/each}}
+    </select>
+</div>
+
+<h2>רשימת טפסים</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>מספר מתנדב</th>
+            <th>מספר לקוח</th>
+            <th>שם מלא</th>
+            <th>האם ענה לטלפון</th>
+            <th>סטטוס</th>
+            <th>טופל על ידי</th>
+            <th>תאריך טיפול</th>
+            <th>פעולות</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each forms}}
+        <tr>
+            <td title="{{this.Id}}">{{@index}}</td>
+            <td>{{this.Data.volunteerNumber}}</td>
+            <td>{{this.Data.customerNumber}}</td>
+            <td>{{this.Data.firstName}} {{this.Data.lastName}}</td>
+            <td>{{#ifeq this.Data.answeredPhone "YES"}}כן{{/ifeq}}{{#ifeq this.Data.answeredPhone "NO"}}לא{{/ifeq}}</td>
+            <td><input type="text" class="form-control" value="{{this.Status}}" /></td>
+            <td><input type="text" class="form-control" value="{{this.HandledBy}}" /></td>
+            <td><input type="date" class="form-control" value="{{this.HandledAt}}" /></td>
+            <td>
+                <a class="btn btn-link" href="../{{this.FormType}}/{{this.Id}}" target="_blank">צפייה</a>
+                <button class="btn btn-primary" id="btnUpadteForm">שמור</button>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

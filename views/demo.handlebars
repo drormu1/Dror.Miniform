@@ -1,0 +1,112 @@
+<div class="header">
+  <img width="100" src="logo.jpg" />
+  <h1>
+    אגף שיקום - משרד הביטחון
+  </h1>
+</div>
+<h2>
+  טופס DEMO
+</h2>
+<form class="needs-validation">
+  <input type="hidden" id="formType" name="formType" value="demo" />
+
+  <div class="mb-3">
+    <span class="required">*</span>
+    <label for="volunteerNumber" class="form-label">מספר מתנדב</label>
+    <input type="text" class="form-control" id="volunteerNumber" name="volunteerNumber" aria-describedby="volunteerNumber" data-required="true" data-min-length="3" data-max-length="3" data-numbers-only="true" value="{{volunteerNumber}}">
+    <div id="volunteerNumberHelp" class="form-text">3 ספרות</div>
+    <div class="invalid-feedback" id="volunteerNumber-error">
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <span class="required">*</span>
+    <label for="customerNumber" class="form-label">מספר לקוח</label>
+    <input type="text" class="form-control" id="customerNumber" name="customerNumber" aria-describedby="customerNumber" data-required="true" data-min-length="7" data-max-length="7" data-numbers-only="true" value="{{customerNumber}}">
+    <div id="customerNumberHelp" class="form-text">7 ספרות</div>
+    <div class="invalid-feedback" id="customerNumber-error">
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <span class="required">*</span>
+    <label for="firstName" class="form-label">שם פרטי</label>
+    <input type="text" class="form-control" id="firstName" name="firstName" aria-describedby="firstName" data-required="true" data-min-length="2" data-max-length="" value="{{firstName}}">
+    <div id="firstNameHelp" class="form-text">שם פרטי</div>
+    <div class="invalid-feedback" id="firstName-error">
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="lastName" class="form-label">שם משפחה</label>
+    <input type="text" class="form-control" id="lastName" name="lastName" aria-describedby="lastName" value="{{lastName}}">
+    <div id="lastNameHelp" class="form-text">שם משפחה</div>
+  </div>
+
+  <div class="mb-3">
+    <span class="required">*</span>
+    <label for="answeredPhone" class="form-label">ענה לטלפון?</label>
+    <select class="form-select" id="answeredPhone" name="answeredPhone" aria-label="Default select example" data-required="true" value="{{answeredPhone}}">
+      <option value=""></option>
+      <option {{#ifeq answeredPhone "YES"}}selected{{/ifeq}} value="YES">כן</option>
+      <option {{#ifeq answeredPhone "NO"}}selected{{/ifeq}} value="NO">לא</option>
+      <option {{#ifeq answeredPhone "WRONG_NUMBER"}}selected{{/ifeq}} value="WRONG_NUMBER">טלפון שגוי</option>
+      <option {{#ifeq answeredPhone "MISSING_PHONE"}}selected{{/ifeq}} value="MISSING_PHONE">טלפון חסר</option>
+    </select>
+    <div class="invalid-feedback" id="answeredPhone-error">
+    </div>
+  </div>
+
+  <div id="phoneAnsweredFields">
+
+    <div class="mb-3">
+      <label for="atHome" class="form-label">האם נמצא בביתו?</label>
+      <select class="form-select" id="atHome" name="atHome" aria-label="Default select example" value="{{atHome}}">
+        <option value=""></option>
+        <option {{#ifeq atHome "NO"}}selected{{/ifeq}} value="NO">לא</option>
+        <option {{#ifeq atHome "YES"}}selected{{/ifeq}} value="YES">כן</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="tempAddressAndDate" class="form-label">במידה ואינו נמצא בביתו, מה הכתובת העדכנית, ועד מתי ישההה שם</label>
+      <textarea type="text" class="form-control" id="tempAddressAndDate" name="tempAddressAndDate" aria-describedby="tempAddressAndDate">{{tempAddressAndDate}}</textarea>
+      <div id="tempAddressAndDateHelp" class="form-text">טקסט חופשי</div>
+    </div>
+
+    <div class="mb-3">
+      <label for="requireEvacuation" class="form-label">מבקש פינוי ביוזמתו</label>
+      <select class="form-select" id="requireEvacuation" name="requireEvacuation" aria-label="Default select example" value="{{requireEvacuation}}">
+        <option value=""></option>
+        <option {{#ifeq requireEvacuation "NO"}}selected{{/ifeq}} value="NO">לא</option>
+        <option {{#ifeq requireEvacuation "YES"}}selected{{/ifeq}} value="YES">כן</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="requireMedication" class="form-label">האם צריך תרופות וציוד מתכלה?</label>
+      <select id="requireMedication" name="requireMedication" class="form-select" aria-label="requireMedication" value="{{requireMedication}}">
+        <option value=""></option>
+        <option {{#ifeq requireMedication "NO"}}selected{{/ifeq}} value="NO">לא</option>
+        <option {{#ifeq requireMedication "YES"}}selected{{/ifeq}} value="YES">כן</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="requireSocialWorker" class="form-label">האם תרצה שעו"ס של אגף שיקום יצור קשר?</label>
+      <select id="requireSocialWorker" name="requireSocialWorker" class="form-select" aria-label="requireSocialWorker" value="requireSocialWorker">
+        <option value=""></option>
+        <option {{#ifeq requireSocialWorker "NO"}}selected{{/ifeq}} value="NO">לא</option>
+        <option {{#ifeq requireSocialWorker "YES"}}selected{{/ifeq}} value="YES">כן</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="comments" class="form-label">רושם / הערות כלליות</label>
+    <textarea class="form-control" id="comments" name="comments" aria-describedby="comments">{{comments}}</textarea>
+    <div id="commentsHelp" class="form-text">הערות כלליות</div>
+  </div>
+</form>
+
+<script src="volunteer.js"></script>

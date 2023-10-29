@@ -1,0 +1,22 @@
+# Fetch single item by id with lazy loading - Works!
+GET http://localhost:3000/volunteer/test HTTP/1.1
+Authorization: token xxx
+
+###
+
+# Export to csv
+GET http://localhost:3000/csv/volunteer HTTP/1.1
+Authorization: token xxx
+
+###
+
+# RPC - Call Publish on draft service
+POST http://localhost:3000/volunteer HTTP/1.1
+content-type: application/json
+Authorization: token xxx
+
+{
+    "formId": "abc",
+
+    "publishedAt": "Wed, 21 Oct 2015 18:27:50 GMT"
+}
